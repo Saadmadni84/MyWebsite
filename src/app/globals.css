@@ -10,7 +10,7 @@
   --border: #1f1f1f;
   --accent: #8b96a9;
   --accent-soft: rgba(139, 150, 169, 0.14);
-  --spotlight: rgba(139, 150, 169, 0.12);
+  --spotlight: rgba(95, 105, 135, 0.25);
 
   --container-reading: 48rem;
   --container-default: 72rem;
@@ -39,6 +39,14 @@
   --duration-slow: 420ms;
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-gentle: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --nav-height: 4.25rem;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --nav-height: 4.5rem;
+  }
 }
 
 @theme inline {
@@ -57,6 +65,7 @@
 
 * {
   border-color: var(--border);
+  box-sizing: border-box;
 }
 
 html {
@@ -67,11 +76,14 @@ html {
 
 body {
   min-height: 100vh;
+  overflow-x: clip;
   background-color: var(--background);
-  background-image:
-    radial-gradient(circle at top center, var(--spotlight) 0%, transparent 34%),
-    radial-gradient(circle at 18% 12%, rgba(65, 74, 89, 0.14) 0%, transparent 18%),
-    linear-gradient(180deg, rgba(8, 9, 13, 0.92) 0%, rgba(5, 5, 5, 1) 24%, rgba(5, 5, 5, 1) 100%);
+  background-image: linear-gradient(
+    180deg,
+    rgba(8, 9, 13, 0.92) 0%,
+    rgba(5, 5, 5, 1) 24%,
+    rgba(5, 5, 5, 1) 100%
+  );
   background-repeat: no-repeat;
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
@@ -81,6 +93,11 @@ body {
 ::selection {
   background: var(--accent-soft);
   color: var(--foreground);
+}
+
+:focus-visible {
+  outline: 1px solid rgba(245, 245, 245, 0.72);
+  outline-offset: 4px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -103,20 +120,11 @@ body {
 main {
   position: relative;
   isolation: isolate;
+  overflow: clip;
 }
 
-main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.015) 0%, transparent 18%),
-    radial-gradient(circle at top center, rgba(255, 255, 255, 0.025) 0%, transparent 30%);
-  mask-image: linear-gradient(180deg, black 0%, black 72%, transparent 100%);
-}
-
-a {
+a,
+button {
   transition:
     color var(--duration-fast) var(--ease-standard),
     background-color var(--duration-fast) var(--ease-standard),
@@ -195,6 +203,139 @@ a {
 
 .fade-rise {
   animation: fade-rise var(--duration-slow) var(--ease-gentle) both;
+}
+
+.nav-anchor {
+  display: block;
+  scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+}
+
+#main-content {
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
+}
+
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 900px 600px at 50% -10%,
+    var(--spotlight),
+    transparent 70%
+  );
+  opacity: 0;
+  animation: hero-spotlight-in 900ms var(--ease-gentle) 80ms forwards;
+}
+
+.hero-name {
+  font-size: clamp(4.25rem, 15vw, 10.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.075em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.hero-role {
+  font-size: clamp(1rem, 2.5vw, 1.45rem);
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.hero-description {
+  max-width: 48rem;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.8;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+.hero-button {
+  display: inline-flex;
+  min-height: 2.875rem;
+  min-width: 11.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding-inline: 1.15rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero-button:hover {
+  transform: translateY(-1px);
+}
+
+.hero-button-primary {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--foreground);
+}
+
+.hero-button-primary:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.hero-button-secondary {
+  background: transparent;
+  color: var(--foreground-secondary);
+}
+
+.hero-button-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--foreground);
+}
+
+.hero-step {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: hero-rise 720ms var(--ease-gentle) forwards;
+}
+
+.hero-step-name {
+  animation-delay: 220ms;
+}
+
+.hero-step-role {
+  animation-delay: 340ms;
+}
+
+.hero-step-description {
+  animation-delay: 460ms;
+}
+
+.hero-step-actions {
+  animation-delay: 580ms;
+}
+
+.hero-step-metrics {
+  animation-delay: 700ms;
+}
+
+@keyframes hero-spotlight-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fade-rise {
