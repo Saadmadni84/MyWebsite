@@ -797,16 +797,16 @@ button {
   gap: 0.75rem;
 }
 
-.skills-grid-1 {
-  grid-template-columns: minmax(0, 40rem);
+.skills-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.skills-grid-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.skills-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .skills-card {
-  min-height: auto;
+  min-height: 9.25rem;
 }
 
 .skills-card-title {
@@ -881,8 +881,8 @@ button {
   }
 
   .projects-grid,
-  .skills-grid-1,
-  .skills-grid-2 {
+  .skills-grid-4,
+  .skills-grid-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -938,14 +938,18 @@ button {
   }
 
   .projects-grid,
-  .skills-grid-1,
-  .skills-grid-2 {
+  .skills-grid-4,
+  .skills-grid-3 {
     grid-template-columns: 1fr;
   }
 
   .project-card,
   .skills-card {
     padding: 0.95rem 0.95rem 1rem;
+  }
+
+  .skills-card {
+    min-height: auto;
   }
 }
 

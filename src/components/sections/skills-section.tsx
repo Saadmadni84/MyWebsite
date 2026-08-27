@@ -8,41 +8,21 @@ type SkillCard = {
 
 type SkillGroup = {
   label: string;
-  columns: 1 | 2;
+  columns: 3 | 4;
   cards: readonly SkillCard[];
 };
 
 const skillGroups: readonly SkillGroup[] = [
   {
-    label: "LANGUAGES",
-    columns: 1,
+    label: "SOFTWARE ENGINEERING",
+    columns: 3,
     cards: [
       {
         title: "Programming Languages",
         items: ["Java (Primary)", "Python", "JavaScript", "SQL"],
       },
-    ],
-  },
-  {
-    label: "BACKEND",
-    columns: 2,
-    cards: [
       {
-        title: "Frameworks",
-        items: ["Spring Boot", "Spring Security", "Microservices"],
-      },
-      {
-        title: "Interfaces",
-        items: ["REST APIs", "GraphQL", "gRPC"],
-      },
-    ],
-  },
-  {
-    label: "SYSTEM DESIGN",
-    columns: 2,
-    cards: [
-      {
-        title: "Distributed Architecture",
+        title: "System Design",
         items: ["Distributed Systems", "Scalability", "CAP Theorem"],
       },
       {
@@ -52,11 +32,19 @@ const skillGroups: readonly SkillGroup[] = [
     ],
   },
   {
-    label: "MESSAGING",
-    columns: 1,
+    label: "BACKEND & SYSTEMS",
+    columns: 3,
     cards: [
       {
-        title: "Streaming & Events",
+        title: "Backend Frameworks",
+        items: ["Spring Boot", "Spring Security", "Microservices"],
+      },
+      {
+        title: "APIs & Interfaces",
+        items: ["REST APIs", "GraphQL", "gRPC"],
+      },
+      {
+        title: "Messaging",
         items: [
           "Apache Kafka",
           "Event-Driven Architecture",
@@ -66,36 +54,44 @@ const skillGroups: readonly SkillGroup[] = [
     ],
   },
   {
-    label: "DATABASES",
-    columns: 2,
-    cards: [
-      {
-        title: "Relational & Document",
-        items: ["PostgreSQL", "SQLite", "MariaDB", "MongoDB"],
-      },
-      {
-        title: "Caching & Specialized",
-        items: ["Redis", "Cassandra", "Neo4j", "InfluxDB"],
-      },
-    ],
-  },
-  {
     label: "CLOUD / DEVOPS",
-    columns: 2,
+    columns: 3,
     cards: [
       {
-        title: "Infrastructure",
-        items: ["AWS (EC2, S3, RDS)", "Docker", "Kubernetes"],
+        title: "Cloud Platform",
+        items: ["AWS", "EC2", "S3", "RDS"],
+      },
+      {
+        title: "Containers & Orchestration",
+        items: ["Docker", "Kubernetes"],
       },
       {
         title: "Delivery",
-        items: ["CI/CD (GitHub Actions)"],
+        items: ["CI/CD", "GitHub Actions"],
       },
     ],
   },
   {
-    label: "MACHINE LEARNING",
-    columns: 2,
+    label: "DATABASES",
+    columns: 3,
+    cards: [
+      {
+        title: "Relational",
+        items: ["PostgreSQL", "SQLite", "MariaDB"],
+      },
+      {
+        title: "Document & Cache",
+        items: ["MongoDB", "Redis"],
+      },
+      {
+        title: "Specialized Stores",
+        items: ["Cassandra", "Neo4j", "InfluxDB"],
+      },
+    ],
+  },
+  {
+    label: "AI / MACHINE LEARNING",
+    columns: 4,
     cards: [
       {
         title: "Applied ML",
@@ -107,22 +103,11 @@ const skillGroups: readonly SkillGroup[] = [
         ],
       },
       {
-        title: "LLM & Learning Systems",
-        items: [
-          "LLMs",
-          "RAG",
-          "Supervised Learning",
-          "Unsupervised Learning",
-        ],
+        title: "Learning Systems",
+        items: ["LLMs", "RAG", "Supervised Learning", "Unsupervised Learning"],
       },
-    ],
-  },
-  {
-    label: "ML FRAMEWORKS",
-    columns: 1,
-    cards: [
       {
-        title: "Frameworks",
+        title: "ML Frameworks",
         items: [
           "PyTorch",
           "TensorFlow",
@@ -130,19 +115,12 @@ const skillGroups: readonly SkillGroup[] = [
           "Hugging Face Transformers",
         ],
       },
-    ],
-  },
-  {
-    label: "ML THEORY",
-    columns: 2,
-    cards: [
       {
-        title: "Mathematics",
-        items: ["Probability", "Statistics", "Linear Algebra"],
-      },
-      {
-        title: "Inference & Optimization",
+        title: "ML Theory",
         items: [
+          "Probability",
+          "Statistics",
+          "Linear Algebra",
           "Optimization",
           "Bayesian Inference",
           "Hypothesis Testing",
@@ -153,7 +131,7 @@ const skillGroups: readonly SkillGroup[] = [
 ] as const;
 
 function gridClass(columns: SkillGroup["columns"]) {
-  return columns === 1 ? "skills-grid skills-grid-1" : "skills-grid skills-grid-2";
+  return columns === 4 ? "skills-grid skills-grid-4" : "skills-grid skills-grid-3";
 }
 
 export function SkillsSection() {
