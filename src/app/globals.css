@@ -596,12 +596,14 @@ button {
 }
 
 .projects-section,
+.credentials-section,
 .skills-section {
   position: relative;
   padding-block: clamp(7.5rem, 10vw, 9.25rem);
 }
 
 .projects-kicker,
+.credentials-kicker,
 .skills-kicker {
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.75rem;
@@ -612,6 +614,7 @@ button {
 }
 
 .projects-heading,
+.credentials-heading,
 .skills-heading {
   font-size: clamp(2.625rem, 3.8vw, 3rem);
   line-height: 1.05;
@@ -622,6 +625,7 @@ button {
 }
 
 .projects-intro,
+.credentials-intro,
 .skills-intro {
   font-size: 1rem;
   line-height: 1.58;
@@ -770,6 +774,68 @@ button {
   color: var(--foreground-muted);
 }
 
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1.25rem;
+}
+
+.credentials-column {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.credentials-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding-block: 0.52rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.credentials-copy {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.credentials-name-line {
+  font-size: 0.93rem;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: #ececec;
+  text-wrap: pretty;
+}
+
+.credentials-name {
+  color: #f2f2f2;
+}
+
+.credentials-issuer {
+  color: var(--foreground-muted);
+}
+
+.credentials-verify {
+  flex: 0 0 auto;
+  display: inline-flex;
+  min-height: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 0.35rem;
+  padding-inline: 0.55rem;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--foreground-secondary);
+  white-space: nowrap;
+}
+
+.credentials-verify:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--foreground);
+}
+
 .skills-group-header {
   display: flex;
   align-items: center;
@@ -881,6 +947,7 @@ button {
   }
 
   .projects-grid,
+  .credentials-grid,
   .skills-grid-4,
   .skills-grid-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -899,6 +966,7 @@ button {
   .about-section,
   .experience-section,
   .projects-section,
+  .credentials-section,
   .skills-section {
     padding-block: clamp(5rem, 18vw, 6.25rem);
   }
@@ -906,6 +974,7 @@ button {
   .about-heading,
   .experience-heading,
   .projects-heading,
+  .credentials-heading,
   .skills-heading {
     font-size: clamp(2.25rem, 9vw, 2.5rem);
   }
@@ -915,6 +984,7 @@ button {
   .experience-description,
   .projects-intro,
   .project-description,
+  .credentials-intro,
   .skills-intro {
     font-size: 0.94rem;
     line-height: 1.58;
@@ -925,7 +995,8 @@ button {
   }
 
   .experience-organization,
-  .project-title-link {
+  .project-title-link,
+  .skills-card-title {
     font-size: 1.02rem;
   }
 
@@ -933,19 +1004,31 @@ button {
   .experience-date,
   .experience-link,
   .project-secondary-link,
-  .project-link-kind {
+  .project-link-kind,
+  .credentials-name-line,
+  .credentials-verify {
     font-size: 0.84rem;
   }
 
   .projects-grid,
+  .credentials-grid,
   .skills-grid-4,
   .skills-grid-3 {
     grid-template-columns: 1fr;
   }
 
+  .credentials-grid {
+    gap: 0;
+  }
+
   .project-card,
   .skills-card {
     padding: 0.95rem 0.95rem 1rem;
+  }
+
+  .credentials-row {
+    gap: 0.75rem;
+    padding-block: 0.6rem;
   }
 
   .skills-card {
