@@ -17,7 +17,6 @@ const metrics = [
 
 const futureAnchorIds = [
   "projects",
-  "skills",
   "blog",
   "credentials",
   "contact",
