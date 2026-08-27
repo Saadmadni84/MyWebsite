@@ -78,13 +78,30 @@ body {
   min-height: 100vh;
   overflow-x: clip;
   background-color: var(--background);
-  background-image: linear-gradient(
-    180deg,
-    rgba(9, 12, 20, 0.98) 0%,
-    rgba(7, 9, 15, 0.94) 14%,
-    rgba(5, 5, 5, 1) 62%,
-    rgba(5, 5, 5, 1) 100%
-  );
+  background-image:
+    radial-gradient(
+      ellipse 75% 55% at 50% 0%,
+      rgba(45, 58, 88, 0.28) 0%,
+      rgba(20, 27, 45, 0.14) 32%,
+      rgba(5, 5, 5, 0) 72%
+    ),
+    radial-gradient(
+      ellipse 68% 42% at 50% 42%,
+      rgba(22, 30, 47, 0.12) 0%,
+      rgba(5, 5, 5, 0) 72%
+    ),
+    radial-gradient(
+      ellipse 72% 38% at 50% 88%,
+      rgba(16, 22, 35, 0.1) 0%,
+      rgba(5, 5, 5, 0) 76%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(9, 12, 20, 0.98) 0%,
+      rgba(7, 9, 15, 0.96) 18%,
+      rgba(6, 7, 11, 0.98) 52%,
+      rgba(5, 5, 5, 1) 100%
+    );
   background-repeat: no-repeat;
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
@@ -766,8 +783,8 @@ button {
     padding-block: 1.75rem;
   }
 
-  .skills-grid-4,
-  .skills-grid-3 {
+  .skills-grid-1,
+  .skills-grid-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

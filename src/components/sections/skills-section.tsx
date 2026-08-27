@@ -8,111 +8,144 @@ type SkillCard = {
 
 type SkillGroup = {
   label: string;
-  columns: 3 | 4;
+  columns: 1 | 2;
   cards: readonly SkillCard[];
 };
 
 const skillGroups: readonly SkillGroup[] = [
   {
-    label: "SOFTWARE ENGINEERING",
-    columns: 4,
+    label: "LANGUAGES",
+    columns: 1,
     cards: [
       {
-        title: "Core Engineering",
+        title: "Programming Languages",
+        items: ["Java (Primary)", "Python", "JavaScript", "SQL"],
+      },
+    ],
+  },
+  {
+    label: "BACKEND",
+    columns: 2,
+    cards: [
+      {
+        title: "Frameworks",
+        items: ["Spring Boot", "Spring Security", "Microservices"],
+      },
+      {
+        title: "Interfaces",
+        items: ["REST APIs", "GraphQL", "gRPC"],
+      },
+    ],
+  },
+  {
+    label: "SYSTEM DESIGN",
+    columns: 2,
+    cards: [
+      {
+        title: "Distributed Architecture",
+        items: ["Distributed Systems", "Scalability", "CAP Theorem"],
+      },
+      {
+        title: "Performance Patterns",
+        items: ["Load Balancing", "Caching"],
+      },
+    ],
+  },
+  {
+    label: "MESSAGING",
+    columns: 1,
+    cards: [
+      {
+        title: "Streaming & Events",
         items: [
-          "Software Engineering",
-          "Backend Engineering",
-          "System Design",
-          "Scalable Software Systems",
+          "Apache Kafka",
+          "Event-Driven Architecture",
+          "Pub/Sub Patterns",
         ],
-      },
-      {
-        title: "Service Design",
-        items: ["APIs", "Microservices", "Distributed Systems"],
-      },
-      {
-        title: "Event-Driven Systems",
-        items: ["Event-Driven Architecture", "Kafka", "Redis"],
-      },
-      {
-        title: "Engineering Scope",
-        items: ["Intelligent Applications", "Cloud Infrastructure"],
-      },
-    ],
-  },
-  {
-    label: "AI / MACHINE LEARNING",
-    columns: 4,
-    cards: [
-      {
-        title: "Applied AI/ML",
-        items: ["AI/ML", "Deep Learning", "Generative AI"],
-      },
-      {
-        title: "LLM Systems",
-        items: ["LLMs", "RAG", "RAG Pipelines"],
-      },
-      {
-        title: "Retrieval & Evaluation",
-        items: ["Retrieval Systems", "Evaluation-Driven AI"],
-      },
-      {
-        title: "Recommendations",
-        items: ["Recommendation Systems"],
-      },
-    ],
-  },
-  {
-    label: "BACKEND & SYSTEMS",
-    columns: 3,
-    cards: [
-      {
-        title: "Languages & Frameworks",
-        items: ["Java", "Spring Boot"],
-      },
-      {
-        title: "Streaming & Caching",
-        items: ["Kafka", "Redis"],
-      },
-      {
-        title: "Architecture",
-        items: ["Distributed Systems", "Microservices", "System Design"],
-      },
-    ],
-  },
-  {
-    label: "CLOUD / DEVOPS",
-    columns: 3,
-    cards: [
-      {
-        title: "Infrastructure",
-        items: ["AWS", "Kubernetes", "Cloud Infrastructure"],
       },
     ],
   },
   {
     label: "DATABASES",
-    columns: 3,
+    columns: 2,
     cards: [
       {
-        title: "Data Layer",
-        items: ["Databases", "Redis"],
+        title: "Relational & Document",
+        items: ["PostgreSQL", "SQLite", "MariaDB", "MongoDB"],
+      },
+      {
+        title: "Caching & Specialized",
+        items: ["Redis", "Cassandra", "Neo4j", "InfluxDB"],
       },
     ],
   },
   {
-    label: "LANGUAGES / TOOLS / OPEN SOURCE",
-    columns: 3,
+    label: "CLOUD / DEVOPS",
+    columns: 2,
     cards: [
       {
-        title: "Language",
-        items: ["Java", "[TODO: VERIFY ADDITIONAL LANGUAGES]"],
+        title: "Infrastructure",
+        items: ["AWS (EC2, S3, RDS)", "Docker", "Kubernetes"],
       },
       {
-        title: "Open Source",
+        title: "Delivery",
+        items: ["CI/CD (GitHub Actions)"],
+      },
+    ],
+  },
+  {
+    label: "MACHINE LEARNING",
+    columns: 2,
+    cards: [
+      {
+        title: "Applied ML",
         items: [
-          "Apache Open Source Contribution",
-          "[TODO: VERIFY APACHE PROJECT NAME]",
+          "Deep Learning",
+          "NLP",
+          "Recommendation Systems",
+          "Generative AI",
+        ],
+      },
+      {
+        title: "LLM & Learning Systems",
+        items: [
+          "LLMs",
+          "RAG",
+          "Supervised Learning",
+          "Unsupervised Learning",
+        ],
+      },
+    ],
+  },
+  {
+    label: "ML FRAMEWORKS",
+    columns: 1,
+    cards: [
+      {
+        title: "Frameworks",
+        items: [
+          "PyTorch",
+          "TensorFlow",
+          "Scikit-Learn",
+          "Hugging Face Transformers",
+        ],
+      },
+    ],
+  },
+  {
+    label: "ML THEORY",
+    columns: 2,
+    cards: [
+      {
+        title: "Mathematics",
+        items: ["Probability", "Statistics", "Linear Algebra"],
+      },
+      {
+        title: "Inference & Optimization",
+        items: [
+          "Optimization",
+          "Bayesian Inference",
+          "Hypothesis Testing",
         ],
       },
     ],
@@ -120,7 +153,7 @@ const skillGroups: readonly SkillGroup[] = [
 ] as const;
 
 function gridClass(columns: SkillGroup["columns"]) {
-  return columns === 4 ? "skills-grid skills-grid-4" : "skills-grid skills-grid-3";
+  return columns === 1 ? "skills-grid skills-grid-1" : "skills-grid skills-grid-2";
 }
 
 export function SkillsSection() {
