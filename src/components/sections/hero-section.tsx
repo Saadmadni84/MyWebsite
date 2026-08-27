@@ -16,7 +16,6 @@ const metrics = [
 ] as const;
 
 const futureAnchorIds = [
-  "projects",
   "blog",
   "credentials",
   "contact",
