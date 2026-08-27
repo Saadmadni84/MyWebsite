@@ -3,7 +3,7 @@ import { Container } from "@/components/layout/container";
 const metrics = [
   {
     value: "6★",
-    label: "CodeChef",
+    label: "CodeChef Rating",
   },
   {
     value: "#17",
@@ -19,19 +19,20 @@ const futureAnchorIds = [
   "experience",
   "projects",
   "skills",
-  "engineering",
+  "blog",
+  "credentials",
   "contact",
 ] as const;
 
 export function HeroSection() {
   return (
     <section
-      id="about"
-      data-nav-section
+      id="hero"
       aria-labelledby="hero-title"
-      className="relative flex min-h-[100svh] items-center overflow-hidden"
+      className="relative flex min-h-[100svh] overflow-hidden"
     >
       <div aria-hidden="true" className="hero-spotlight" />
+      <div aria-hidden="true" className="hero-vignette" />
 
       {futureAnchorIds.map((id, index) => (
         <div
@@ -39,60 +40,60 @@ export function HeroSection() {
           id={id}
           aria-hidden="true"
           className="nav-anchor pointer-events-none absolute left-0 h-px w-px opacity-0"
-          style={{ top: `${34 + index * 11}%` }}
+          style={{ top: `${36 + index * 9}%` }}
         />
       ))}
 
       <Container width="wide" className="relative z-10">
-        <div className="mx-auto flex max-w-5xl flex-col items-center px-0 pb-20 pt-28 text-center sm:pb-24 sm:pt-32 lg:pb-28 lg:pt-36">
-          <div className="space-y-6 sm:space-y-7">
-            <h1 id="hero-title" className="hero-name hero-step hero-step-name text-foreground">
-              <span className="block">SAAD</span>
-              <span className="block">MADNI</span>
-            </h1>
+        <div className="mx-auto flex min-h-[100svh] max-w-[72rem] flex-col px-0 pb-10 pt-[calc(var(--nav-height)+1rem)] sm:pb-12 sm:pt-[calc(var(--nav-height)+1.5rem)] lg:pb-16 lg:pt-[calc(var(--nav-height)+2rem)]">
+          <div className="flex flex-1 flex-col items-center justify-center text-center">
+            <div className="hero-copy-shell w-full max-w-4xl">
+              <h1 id="hero-title" className="hero-name hero-step hero-step-name">
+                <span className="block">SAAD</span>
+                <span className="block">MADNI</span>
+              </h1>
 
-            <p className="hero-role hero-step hero-step-role text-foreground-secondary">
-              <span className="block sm:inline">Software Engineer</span>
-              <span className="mx-3 hidden text-foreground-muted sm:inline">·</span>
-              <span className="mt-1 block sm:mt-0 sm:inline">AI/ML Engineer</span>
-            </p>
+              <p className="hero-role hero-step hero-step-role mt-8 text-foreground-secondary sm:mt-9">
+                Software Engineer &amp; AI/ML Engineer
+              </p>
 
-            <p className="hero-description hero-step hero-step-description mx-auto text-foreground-secondary">
-              I build scalable software systems and intelligent applications —
-              from distributed backend systems and event-driven architectures to
-              recommendation systems and evaluation-driven RAG pipelines.
-            </p>
+              <p className="hero-description hero-step hero-step-description mx-auto mt-5 text-foreground-secondary sm:mt-6">
+                I build scalable software systems and intelligent applications.
+              </p>
+
+              <div className="hero-step hero-step-actions mt-9 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-3">
+                <a
+                  href="#projects"
+                  className="hero-button hero-button-primary w-full max-w-[12rem] sm:w-auto"
+                >
+                  <span>View Work</span>
+                  <span aria-hidden="true">↓</span>
+                </a>
+
+                <a
+                  href="#contact"
+                  className="hero-button hero-button-secondary w-full max-w-[12rem] sm:w-auto"
+                >
+                  <span>Get in touch</span>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="hero-step hero-step-actions mt-10 flex flex-col items-center gap-3 sm:mt-12 sm:flex-row sm:justify-center">
-            <a href="#projects" className="hero-button hero-button-primary w-full max-w-xs sm:w-auto">
-              <span>View Work</span>
-              <span aria-hidden="true" className="text-sm text-foreground-secondary">
-                ↓
-              </span>
-            </a>
-            <a href="#contact" className="hero-button hero-button-secondary w-full max-w-xs sm:w-auto">
-              <span>Get in touch</span>
-            </a>
-          </div>
-
-          <dl className="hero-step hero-step-metrics mt-14 grid w-full max-w-4xl overflow-hidden rounded-[var(--radius-md)] border border-white/[0.06] bg-[rgba(10,10,10,0.36)] sm:mt-16 sm:grid-cols-3">
+          <dl className="hero-step hero-step-metrics hero-metrics-row mx-auto w-full max-w-[44rem]">
             {metrics.map((metric, index) => (
               <div
                 key={metric.label}
                 className={[
-                  "flex flex-col items-center gap-3 px-6 py-6 sm:px-7 sm:py-7",
-                  index < metrics.length - 1
-                    ? "border-b border-white/[0.06] sm:border-b-0 sm:border-r"
-                    : "",
+                  "hero-metric-item flex flex-col items-center px-6 py-4 text-center sm:px-8 sm:py-5",
+                  index > 0 ? "sm:border-l sm:border-white/[0.05]" : "",
+                  index > 0 ? "border-t border-white/[0.05] sm:border-t-0" : "",
                 ]
                   .filter(Boolean)
                   .join(" ")}
               >
-                <dt className="meta-label order-2">{metric.label}</dt>
-                <dd className="order-1 text-[1.9rem] font-medium tracking-[-0.06em] text-foreground sm:text-[2.5rem]">
-                  {metric.value}
-                </dd>
+                <dd className="hero-metric-value">{metric.value}</dd>
+                <dt className="hero-metric-label mt-3">{metric.label}</dt>
               </div>
             ))}
           </dl>

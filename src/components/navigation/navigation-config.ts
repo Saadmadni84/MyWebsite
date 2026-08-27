@@ -3,7 +3,8 @@ export const navigationItems = [
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
-  { id: "engineering", label: "Engineering" },
+  { id: "blog", label: "Blog" },
+  { id: "credentials", label: "Credentials" },
   { id: "contact", label: "Contact" },
 ] as const;
 

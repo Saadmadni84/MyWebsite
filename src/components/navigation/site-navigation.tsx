@@ -9,7 +9,7 @@ function cx(...values: Array<string | false | null | undefined>) {
 }
 
 export function SiteNavigation() {
-  const [activeSection, setActiveSection] = useState<string>(navigationItems[0].id);
+  const [activeSection, setActiveSection] = useState<string>("");
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const sectionIds = useMemo(() => navigationItems.map((item) => item.id), []);
@@ -33,8 +33,8 @@ export function SiteNavigation() {
         }
       },
       {
-        rootMargin: "-84px 0px -52% 0px",
-        threshold: [0.1, 0.25, 0.5, 0.75],
+        rootMargin: "-88px 0px -52% 0px",
+        threshold: [0.12, 0.24, 0.4, 0.64],
       },
     );
 
@@ -94,11 +94,11 @@ export function SiteNavigation() {
         Skip to content
       </a>
 
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[rgba(5,5,5,0.76)]">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[rgba(9,12,20,0.72)]">
         <Container width="wide" className="relative">
           <div className="flex h-[var(--nav-height)] items-center justify-between gap-6">
             <a
-              href="#about"
+              href="#hero"
               className="inline-flex min-w-0 items-center rounded-sm py-2 text-[0.72rem] font-medium uppercase tracking-[0.22em] text-foreground transition-colors hover:text-foreground-secondary focus-visible:text-foreground"
             >
               SAAD MADNI
@@ -115,7 +115,7 @@ export function SiteNavigation() {
                         href={`#${item.id}`}
                         aria-current={isActive ? "location" : undefined}
                         className={cx(
-                          "group relative inline-flex items-center rounded-sm px-3 py-3 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-foreground-muted transition-colors hover:text-foreground focus-visible:text-foreground lg:text-[0.72rem]",
+                          "group relative inline-flex items-center rounded-sm px-3 py-3 text-[0.72rem] font-normal tracking-[-0.01em] text-foreground-muted transition-colors hover:text-foreground-secondary focus-visible:text-foreground lg:px-3.5",
                           isActive && "text-foreground",
                         )}
                       >
@@ -123,7 +123,7 @@ export function SiteNavigation() {
                         <span
                           aria-hidden="true"
                           className={cx(
-                            "absolute inset-x-3 bottom-2 h-px origin-left bg-white/[0.56] transition-transform duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+                            "absolute inset-x-3 bottom-2 h-px origin-left bg-white/[0.52] transition-transform duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:inset-x-3.5",
                             isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
                           )}
                         />
@@ -170,7 +170,7 @@ export function SiteNavigation() {
 
       <div
         className={cx(
-          "fixed inset-x-0 top-[var(--nav-height)] z-40 border-b border-white/[0.06] bg-[rgba(5,5,5,0.98)] transition-[opacity,transform,visibility] duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden",
+          "fixed inset-x-0 top-[var(--nav-height)] z-40 border-b border-white/[0.06] bg-[rgba(6,8,14,0.98)] transition-[opacity,transform,visibility] duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden",
           mobileOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible -translate-y-2 opacity-0",
@@ -189,7 +189,7 @@ export function SiteNavigation() {
                       aria-current={isActive ? "location" : undefined}
                       onClick={() => setMobileOpen(false)}
                       className={cx(
-                        "flex items-center justify-between px-6 py-5 text-[0.8rem] font-medium uppercase tracking-[0.18em] text-foreground-secondary transition-colors hover:text-foreground focus-visible:text-foreground",
+                        "flex items-center justify-between px-6 py-5 text-[0.86rem] font-normal tracking-[-0.01em] text-foreground-secondary transition-colors hover:text-foreground focus-visible:text-foreground",
                         isActive && "text-foreground",
                       )}
                     >
