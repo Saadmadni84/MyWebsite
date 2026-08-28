@@ -25,9 +25,14 @@ export function ContactSection() {
           <Reveal delayMs={160} className="mt-10 sm:mt-12">
             <div className="contact-panel">
               <div className="contact-panel-inner">
-                <p className="contact-copy">
-                  You can reach me through the platforms below.
+                <p className="contact-panel-copy">
+                  Whether you want to collaborate, or just want to say hi, my
+                  inbox is open.
                 </p>
+
+                <a href="mailto:saadmadni84@gmail.com" className="contact-email">
+                  saadmadni84@gmail.com
+                </a>
 
                 <div className="contact-links" aria-label="Social links">
                   {contactLinks.map((link) => (

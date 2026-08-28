@@ -594,7 +594,6 @@ button {
 
 .projects-intro,
 .credentials-intro,
-.contact-copy,
 .skills-intro {
   font-size: 1rem;
   line-height: 1.58;
@@ -805,10 +804,34 @@ button {
   color: var(--foreground);
 }
 
+.contact-section {
+  position: relative;
+  padding-block: clamp(7.5rem, 10vw, 9.25rem);
+}
+
+.contact-kicker {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+}
+
+.contact-heading {
+  font-size: clamp(2.625rem, 3.8vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+  color: #f2f2f2;
+  text-wrap: balance;
+}
+
 .contact-panel {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.2rem;
-  background: rgba(255, 255, 255, 0.018);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.018) 0%, rgba(255, 255, 255, 0.012) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
 .contact-panel-inner {
@@ -817,13 +840,31 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.85rem;
   padding: clamp(2rem, 5vw, 3.5rem);
   text-align: center;
 }
 
-.contact-copy {
-  max-width: 28rem;
+.contact-panel-copy {
+  max-width: 20rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
+  color: var(--foreground-secondary);
+  text-wrap: balance;
+}
+
+.contact-email {
+  font-size: clamp(1.9rem, 3.2vw, 2.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+  color: #f2f2f2;
+  overflow-wrap: anywhere;
+}
+
+.contact-email:hover {
+  color: #ffffff;
 }
 
 .contact-links {
@@ -987,6 +1028,7 @@ button {
   .experience-section,
   .projects-section,
   .credentials-section,
+  .contact-section,
   .skills-section {
     padding-block: clamp(5rem, 18vw, 6.25rem);
   }
@@ -994,6 +1036,7 @@ button {
   .experience-heading,
   .projects-heading,
   .credentials-heading,
+  .contact-heading,
   .skills-heading {
     font-size: clamp(2.25rem, 9vw, 2.5rem);
   }
@@ -1009,6 +1052,7 @@ button {
   .projects-intro,
   .project-description,
   .credentials-intro,
+  .contact-panel-copy,
   .skills-intro {
     font-size: 1rem;
     line-height: 1.72;
@@ -1056,6 +1100,11 @@ button {
     min-height: 14rem;
     gap: 1.5rem;
     padding: 1.5rem;
+  }
+
+  .contact-email {
+    font-size: clamp(1.55rem, 9vw, 1.9rem);
+    line-height: 1.12;
   }
 
   .contact-links {
