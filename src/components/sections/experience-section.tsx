@@ -11,18 +11,19 @@ type ExperienceEntry = {
 
 const experienceEntries: ExperienceEntry[] = [
   {
-    date: "[TODO: VERIFY FROM RESUME]",
+    date: "Feb 2025 – May 2025",
     organization: "PrepAIro",
-    role: "[TODO: VERIFY FROM RESUME]",
+    role: "Software Engineer Intern",
     description:
-      "[TODO: VERIFY FROM RESUME — add the exact engineering scope, technologies, and production impact for PrepAIro.]",
+      "Engineered 5+ production RESTful microservices in Java and Spring Boot for high-concurrency workloads with sub-100ms p95 latency; improved backend performance by 30% through multi-level Redis caching, query tuning, and database indexing; designed PostgreSQL schemas and connection pooling for high-throughput transaction processing; and applied system design and distributed architecture patterns to strengthen fault tolerance and high availability across core services.",
   },
   {
-    date: "[TODO: VERIFY FROM RESUME]",
-    organization: "Apache [TODO: VERIFY PROJECT NAME FROM RESUME]",
+    date: "—",
+    organization: "Apache",
     role: "Open Source Contributor",
     description:
-      "[TODO: VERIFY FROM RESUME — add the exact Apache project, contribution details, and any verified issue, test, debugging, documentation, or pull request work.]",
+      "Open-source contribution to Apache Airflow.",
+    href: "https://github.com/apache/airflow",
   },
 ];
 
