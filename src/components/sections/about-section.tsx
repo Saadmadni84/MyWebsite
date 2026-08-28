@@ -1,10 +1,42 @@
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
 
+type AboutDetail = {
+  label: string;
+  value: string;
+  href?: string;
+};
+
 const aboutParagraphs = [
   "I’m a Software Engineer and AI/ML Engineer focused on building scalable software systems and intelligent applications.",
-  "My engineering work spans backend engineering, distributed systems, microservices, event-driven architecture, databases, and cloud infrastructure — building systems that are reliable under load and practical to operate.",
-  "On the AI/ML side, I work across deep learning, recommendation systems, LLM applications, RAG, retrieval systems, and evaluation-driven AI, with an interest in understanding how these systems behave end to end.",
+  "My work spans backend engineering, distributed systems, microservices, event-driven architecture, databases, cloud infrastructure, and applied AI/ML systems designed to be reliable under load and practical to operate end to end.",
+] as const;
+
+const aboutDetails: readonly AboutDetail[] = [
+  {
+    label: "Focus",
+    value: "Software Engineering · AI / ML · Intelligent Applications",
+  },
+  {
+    label: "Systems",
+    value:
+      "Backend Engineering · Distributed Systems · Microservices · Event-Driven Architecture",
+  },
+  {
+    label: "AI / ML",
+    value:
+      "Deep Learning · Recommendation Systems · LLM Applications · RAG",
+  },
+  {
+    label: "Platforms",
+    value:
+      "Databases · Cloud Infrastructure · Retrieval Systems · Evaluation-Driven AI",
+  },
+  {
+    label: "Email",
+    value: "saadmadni84@gmail.com",
+    href: "mailto:saadmadni84@gmail.com",
+  },
 ] as const;
 
 export function AboutSection() {
@@ -17,63 +49,58 @@ export function AboutSection() {
     >
       <Container width="wide">
         <div className="about-shell mx-auto max-w-[72rem]">
-          <div className="about-copy-column">
-            <Reveal as="p" className="about-kicker">
-              [ ABOUT ME ]
-            </Reveal>
+          <Reveal as="p" className="about-kicker">
+            [ ABOUT ]
+          </Reveal>
 
-            <Reveal delayMs={80} className="mt-6">
-              <h2 id="about-title" className="about-heading">
-                Hello!
-              </h2>
-            </Reveal>
+          <Reveal delayMs={80} className="mt-6">
+            <h2 id="about-title" className="about-heading">
+              About Me
+            </h2>
+          </Reveal>
 
-            <div className="mt-8 space-y-5 sm:mt-9 sm:space-y-6">
-              {aboutParagraphs.map((paragraph, index) => (
-                <Reveal
-                  key={paragraph}
-                  as="p"
-                  delayMs={180 + index * 90}
-                  className="about-paragraph"
-                >
-                  {paragraph}
-                </Reveal>
-              ))}
-            </div>
-
-            <Reveal delayMs={470} className="mt-9 sm:mt-10">
-              <a
-                href="mailto:saadmadni84@gmail.com"
-                className="about-link"
-              >
-                <span>Say hello</span>
-                <span aria-hidden="true" className="about-link-arrow">
-                  →
-                </span>
-              </a>
-            </Reveal>
-          </div>
-
-          <Reveal delayMs={540} className="about-media-shell">
-            <div
-              role="img"
-              aria-label="Professional portrait placeholder. Replace with Saad Madni photo."
-              className="about-portrait-frame"
-            >
-              <div className="about-portrait-placeholder">
-                <p className="about-placeholder-label">Portrait placeholder</p>
-
-                <div className="space-y-2">
-                  <p className="about-placeholder-title">
-                    No professional photo in project.
-                  </p>
-                  <p className="about-placeholder-copy">
-                    TODO: replace this block with Saad Madni’s portrait.
-                  </p>
-                </div>
+          <div className="about-editorial mt-12 sm:mt-14 lg:mt-16">
+            <div className="about-copy-column">
+              <div className="about-copy-stack space-y-6 sm:space-y-7">
+                {aboutParagraphs.map((paragraph, index) => (
+                  <Reveal
+                    key={paragraph}
+                    as="p"
+                    delayMs={180 + index * 90}
+                    className="about-paragraph"
+                  >
+                    {paragraph}
+                  </Reveal>
+                ))}
               </div>
             </div>
-          </Reveal>
+
+            <div className="about-details-column">
+              <dl className="about-detail-list">
+                {aboutDetails.map((detail, index) => (
+                  <Reveal
+                    key={detail.label}
+                    delayMs={240 + index * 70}
+                    className="about-detail-row"
+                  >
+                    <dt className="about-detail-label">{detail.label}</dt>
+                    <dd className="about-detail-value">
+                      {detail.href ? (
+                        <a
+                          href={detail.href}
+                          className="about-detail-link"
+                        >
+                          {detail.value}
+                        </a>
+                      ) : (
+                        detail.value
+                      )}
+                    </dd>
+                  </Reveal>
+                ))}
+              </dl>
+            </div>
+          </div>
         </div>
       </Container>
     </section>
