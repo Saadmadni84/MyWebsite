@@ -15,7 +15,7 @@ const metrics = [
   },
 ] as const;
 
-const futureAnchorIds = ["blog", "contact"] as const;
+const futureAnchorIds = ["blog"] as const;
 
 export function HeroSection() {
   return (

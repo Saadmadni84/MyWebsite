@@ -1,5 +1,6 @@
 import { SiteNavigation } from "@/components/navigation/site-navigation";
 import { AboutSection } from "@/components/sections/about-section";
+import { ContactSection } from "@/components/sections/contact-section";
 import { CredentialsSection } from "@/components/sections/credentials-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { HeroSection } from "@/components/sections/hero-section";
@@ -17,6 +18,7 @@ export default function Home() {
         <ProjectsSection />
         <SkillsSection />
         <CredentialsSection />
+        <ContactSection />
       </main>
     </>
   );
