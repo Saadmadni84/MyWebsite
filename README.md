@@ -2,6 +2,10 @@
 
 A premium dark portfolio for Saad Madni, focused on software engineering, backend systems, distributed architecture, and applied AI/ML.
 
+## Live Site
+
+- https://saadmadni.vercel.app/
+
 ## Overview
 
 This project is a custom single-page portfolio built with Next.js and React. It presents:
